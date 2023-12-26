@@ -40,6 +40,9 @@ INITSCRIPT_NAME:${PN} = "aesdsocket-start-stop.sh"
 
 INHIBIT_PACKAGE_STRIP="1"
 
+# needed for pthread_exit, else aesdsocket crashes
+RDEPENDS:${PN} += "libgcc"
+
 do_configure () {
 	:
 }
